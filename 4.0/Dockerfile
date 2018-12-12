@@ -5,7 +5,7 @@ MAINTAINER tomas.hejatko@ackee.cz
 COPY ackee-entrypoint.sh /ackee-entrypoint.sh
 
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y -q install curl gnupg ca-certificates
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y -q install curl gnupg ca-certificates lsb-release
 
 # Stackdriver
 
