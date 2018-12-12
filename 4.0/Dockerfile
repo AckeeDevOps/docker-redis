@@ -5,7 +5,7 @@ MAINTAINER tomas.hejatko@ackee.cz
 COPY ackee-entrypoint.sh /ackee-entrypoint.sh
 
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y -q install curl gnupg ca-certificates lsb-release libhiredis0.13
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y -q install curl gnupg ca-certificates lsb-release libhiredis0.13 procps
 
 # Stackdriver
 
@@ -13,6 +13,8 @@ RUN echo "deb http://packages.cloud.google.com/apt google-cloud-monitoring-$(lsb
 RUN curl --connect-timeout 5 -s -f "https://packages.cloud.google.com/apt/doc/apt-key.gpg" | apt-key add -
 RUN apt-get -qq update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y -q install stackdriver-agent
+
+RUN rm -rf /var/lib/apt/lists/*
 
 COPY setup_stackdriver.sh /opt/01-setup-stackdriver.sh
 
