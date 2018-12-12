@@ -7,6 +7,9 @@ COPY ackee-entrypoint.sh /ackee-entrypoint.sh
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y -q install curl gnupg ca-certificates lsb-release libhiredis0.13 procps
 
+RUN mkdir /etc/redis
+RUN echo "bind 0.0.0.0" > /etc/redis/redis.conf
+
 # Stackdriver
 
 RUN echo "deb http://packages.cloud.google.com/apt google-cloud-monitoring-$(lsb_release -sc) main" > /etc/apt/sources.list.d/google-cloud-monitoring.list
