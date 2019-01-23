@@ -17,6 +17,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y -q install stackdriver-agent
 
 RUN rm -rf /var/lib/apt/lists/*
 
-COPY setup_stackdriver.sh /opt/01-setup-stackdriver.sh
+#COPY setup_stackdriver.sh /opt/01-setup-stackdriver.sh
 
 RUN cp /usr/local/bin/docker-entrypoint.sh /opt/04-redis-entrypoint.sh && cp /ackee-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
