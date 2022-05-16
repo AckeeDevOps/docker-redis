@@ -1,4 +1,4 @@
-FROM redis:5.0
+FROM redis:7.0
 
 MAINTAINER tomas.hejatko@ackee.cz
 
